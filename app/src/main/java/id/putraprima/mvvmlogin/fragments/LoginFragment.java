@@ -39,8 +39,11 @@ public class LoginFragment extends Fragment {
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
                 if (loginFragmentViewModel.isLogin()){
-                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment);
+                    bundle.putString("email",loginFragmentViewModel.email);
+                    bundle.putString("password",loginFragmentViewModel.password);
+                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment,bundle);
                 }else {
                     binding.btnLogin.setError("Pastikan email dan password benar!");
                 }

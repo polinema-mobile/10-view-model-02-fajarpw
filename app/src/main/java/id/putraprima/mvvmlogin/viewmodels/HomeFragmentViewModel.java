@@ -12,6 +12,7 @@ public class HomeFragmentViewModel extends ViewModel {
 
     public HomeFragmentViewModel(UserModel userModel) {
         this.userModel = userModel;
+        this.userModelMutableLiveData.setValue(userModel);
     }
 
     public LiveData<UserModel> userModelLiveData(){
